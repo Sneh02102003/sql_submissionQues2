@@ -1,0 +1,27 @@
+package com.example.myapp;
+
+import com.example.myapp.service.WebhookService;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class JavaQualifierApp implements CommandLineRunner {
+
+    private final WebhookService webhookService;
+
+    public JavaQualifierApp(WebhookService webhookService) {
+        this.webhookService = webhookService;
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(JavaQualifierApp.class, args);
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
+        webhookService.startFlow();
+		
+    }
+}
+
